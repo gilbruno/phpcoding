@@ -25,6 +25,9 @@ function _count(int $countPlayers) {
     return $result;
 }
 
+/**
+ * Add other function to optimize the for loop in the first function
+ */
 function _count_optimized(int $countPlayers) {
     if ($countPlayers < 2 && $countPlayers > 2000) {
         return "Error";
