@@ -10,7 +10,7 @@
  * NB : n est un entier strictement positif inférieur à 2^31 .
  */
 
- 
+
 class IntegerWrapper {
 
     public int $initVal;
@@ -57,7 +57,7 @@ class IntegerWrapper {
     }
 
     /**
-     * After settig all the properties we need, ths imethod compute the result
+     * After settig all the properties we need, this method compute the result
      */
     private function findResult() {
         $result = $this->firstDigit;
@@ -85,13 +85,18 @@ class IntegerWrapper {
                 $unusedIntegers[] = $myInt;
             }
         }
+
+        if (count($unusedIntegers) == 1 && $unusedIntegers[0] == 0) {
+            $this->result = -1;
+            return;
+        }
         sort($unusedIntegers);
         $this->findFirstDigit($unusedIntegers, $arrayDigits);
         $this->result = $this->findResult();
     }
 }
 
-$integerWrapper = new IntegerWrapper(654320);
+$integerWrapper = new IntegerWrapper(678321);
 $integerWrapper->next();
 
 echo $integerWrapper->result;

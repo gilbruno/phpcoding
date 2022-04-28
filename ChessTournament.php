@@ -12,6 +12,7 @@
  * 
  * 
  */
+
 function _count(int $countPlayers) {
     if ($countPlayers < 2 && $countPlayers > 2000) {
         return "Error";
@@ -20,8 +21,22 @@ function _count(int $countPlayers) {
     for ($i = 1; $i < $countPlayers; $i++ ) {
         $result += $i;
     }
+    
     return $result;
 }
 
-$res = _count(1000);
+function _count_optimized(int $countPlayers) {
+    if ($countPlayers < 2 && $countPlayers > 2000) {
+        return "Error";
+    }
+    $result = ($countPlayers * ($countPlayers-1)) / 2;
+    return $result;
+}
+
+$val = 1000;
+$res = _count($val);
+$res_optimzed = _count_optimized($val);
 echo $res;
+echo '  ||  ';
+echo $res_optimzed;
+echo " (with optimized function)";
